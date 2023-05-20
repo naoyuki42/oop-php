@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * 第2章
+ */
 require "SRP/Gear.php";
 require "SRP/Wheel.php";
 
