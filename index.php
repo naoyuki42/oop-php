@@ -24,13 +24,20 @@
 /**
  * 第6章
  */
+require "Extends/Bicycle.php";
+require "Extends/RoadBike.php";
 require "Extends/MountainBike.php";
+require "Extends/RecumbentBike.php";
 
-$bike = new MountainBike(
-        size: "S",
-        front_shock: "Manitou",
-        rear_shock: "Fox"
-    );
+use Extends\RoadBike;
+use Extends\MountainBike;
+use Extends\RecumbentBike;
 
-var_dump($bike->size);
-var_dump($bike->spares());
+$road_bike = new RoadBike(["size" => "M", "tape_color" => "red"]);
+var_dump($road_bike->spares());
+
+$mountain_bike = new MountainBike(["size" => "S", "front_shock" => "Manitou", "rear_shock" => "Fox"]);
+var_dump($mountain_bike->spares());
+
+$recumbent_bike = new RecumbentBike(["flag" => "tail and orange"]);
+var_dump($recumbent_bike->spares());
