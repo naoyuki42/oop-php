@@ -70,18 +70,18 @@
  * 第8章
  */
 // require "Components/Bicycle.php";
-require "Components/Parts.php";
-require "Components/Part.php";
+// require "Components/Parts.php";
+// require "Components/Part.php";
 // require "Components/RoadBikeParts.php";
 // require "Components/MountainBikeParts.php";
 
-require "Components/config.php";
-require "Components/PartsFactory.php";
+// require "Components/config.php";
+// require "Components/PartsFactory.php";
 
 // use Components\Bicycle;
-use Components\Parts;
-use Components\Part;
-use Components\PartsFactory;
+// use Components\Parts;
+// use Components\Part;
+// use Components\PartsFactory;
 
 // $chain = new Part(["name" => "chain", "description" => "10-speed"]);
 // $road_tire = new Part(["name" => "tire_size", "description" => "23"]);
@@ -103,9 +103,20 @@ use Components\PartsFactory;
 // var_dump($road_bike->spares());
 // var_dump($mountain_bike->spares());
 
-$parts_factory = new PartsFactory();
-$road_parts = $parts_factory->build($road_config);
-$mountain_parts = $parts_factory->build($mountain_config);
+// $parts_factory = new PartsFactory();
+// $road_bike = new Bicycle([
+//     "size" => "L",
+//     "parts" => $parts_factory->build($road_config),
+// ]);
+// $mountain_bike = new Bicycle([
+//     "size" => "S",
+//     "parts" => $parts_factory->build($mountain_config),
+// ]);
+// $recumbent_bike = new Bicycle([
+//     "size" => "S",
+//     "parts" => $parts_factory->build($recumbent_config),
+// ]);
 
-var_dump($road_parts->spares());
-var_dump($mountain_parts->spares());
+// var_dump($road_bike->spares());
+// var_dump($mountain_bike->spares());
+// var_dump($recumbent_bike->spares());

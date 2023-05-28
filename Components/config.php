@@ -12,3 +12,9 @@ $mountain_config = [
     ["front_shock", "Manitou", false],
     ["rear_shock", "Fox"],
 ];
+
+$recumbent_config = [
+    ["chain", "9-speed"],
+    ["tire_size", "28"],
+    ["flag", "tall and orange"],
+];

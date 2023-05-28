@@ -11,11 +11,9 @@ class Bicycle {
         $this->parts = $args["parts"];
     }
 
-    public function size() {
-        return $this->parts->size;
-    }
-
     public function spares() {
-        return $this->parts->spares();
+        return array_merge([
+            "size" => $this->size,
+        ], $this->parts->spares());
     }
 }
