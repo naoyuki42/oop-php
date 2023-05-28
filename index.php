@@ -45,23 +45,67 @@
 /**
  * 第7章
  */
-require "Module/Schedule.php";
-require "Module/Bicycle.php";
-require "Module/Vehicle.php";
-require "Module/Mechanic.php";
+// require "Module/Schedule.php";
+// require "Module/Bicycle.php";
+// require "Module/Vehicle.php";
+// require "Module/Mechanic.php";
 
-use Module\Bicycle;
-use Module\Vehicle;
-use Module\Mechanic;
+// use Module\Bicycle;
+// use Module\Vehicle;
+// use Module\Mechanic;
 
-$starting = "2023/09/04";
-$ending = "2023/09/10";
+// $starting = "2023/09/04";
+// $ending = "2023/09/10";
 
-$b = new Bicycle();
-var_dump($b->schedulable($starting, $ending));
+// $b = new Bicycle();
+// var_dump($b->schedulable($starting, $ending));
 
-$v = new Vehicle();
-var_dump($v->schedulable($starting, $ending));
+// $v = new Vehicle();
+// var_dump($v->schedulable($starting, $ending));
 
-$m = new Mechanic();
-var_dump($m->schedulable($starting, $ending));
+// $m = new Mechanic();
+// var_dump($m->schedulable($starting, $ending));
+
+/**
+ * 第8章
+ */
+// require "Components/Bicycle.php";
+require "Components/Parts.php";
+require "Components/Part.php";
+// require "Components/RoadBikeParts.php";
+// require "Components/MountainBikeParts.php";
+
+require "Components/config.php";
+require "Components/PartsFactory.php";
+
+// use Components\Bicycle;
+use Components\Parts;
+use Components\Part;
+use Components\PartsFactory;
+
+// $chain = new Part(["name" => "chain", "description" => "10-speed"]);
+// $road_tire = new Part(["name" => "tire_size", "description" => "23"]);
+// $tape = new Part(["name" => "tape_color", "description" => "red"]);
+// $mountain_tire = new Part(["name" => "tire_size", "description" => "2.1"]);
+// $rear_shock = new Part(["name" => "rear_shock", "description" => "Fox"]);
+// $front_shock = new Part(["name" => "front_shock", "description" => "Manitou", "needs_spare" => false]);
+
+// $road_bike = new Bicycle([
+//     "size" => "L",
+//     "parts" => new Parts([$chain, $road_tire, $tape]),
+// ]);
+
+// $mountain_bike = new Bicycle([
+//     "size" => "S",
+//     "parts" => new Parts([$chain, $mountain_tire, $front_shock, $rear_shock]),
+// ]);
+
+// var_dump($road_bike->spares());
+// var_dump($mountain_bike->spares());
+
+$parts_factory = new PartsFactory();
+$road_parts = $parts_factory->build($road_config);
+$mountain_parts = $parts_factory->build($mountain_config);
+
+var_dump($road_parts->spares());
+var_dump($mountain_parts->spares());
