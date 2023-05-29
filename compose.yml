@@ -1,7 +1,7 @@
 services:
   php:
     container_name: php
-    image: php:cli
+    build: ./
     tty: true
     volumes:
       - ./:/app
