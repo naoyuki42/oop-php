@@ -11,7 +11,7 @@ class Wheel {
         $this->tire = $tire;
     }
 
-    public function width() {
+    public function diameter() {
         return $this->rim + ($this->tire * 2);
     }
 }
