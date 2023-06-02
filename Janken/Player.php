@@ -1,25 +1,17 @@
 <?php
 
 class Player {
-    private string $ROCK = "グー";
-    private string $SCISSORS = "チョキ";
-    private string $PAPER = "パー";
+    private Tactics $tactics;
     private int $win_count = 0;
-
     public string $name;
 
-    public function __construct(string $name) {
-        $this->name = $name;
+    public function __construct(array $args) {
+        $this->name = $args["name"];
+        $this->tactics = $args["tactics"];
     }
 
     public function show_hand(): string {
-        $hands = [$this->ROCK, $this->SCISSORS, $this->PAPER];
-        $index = array_rand([
-            $this->ROCK,
-            $this->SCISSORS,
-            $this->PAPER
-        ], 1);
-        return $hands[$index];
+        return $this->tactics->readTactics();
     }
 
     public function notify_win(): void {
