@@ -1,5 +1,7 @@
 <?php
 
+namespace OldMaid;
+
 class Hand {
     private array $hand = [];
 

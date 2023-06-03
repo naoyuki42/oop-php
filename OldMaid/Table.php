@@ -1,5 +1,7 @@
 <?php
 
+namespace OldMaid;
+
 class Table {
     private array $disposedCards = [];
 

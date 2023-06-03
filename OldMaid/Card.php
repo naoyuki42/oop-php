@@ -1,5 +1,7 @@
 <?php
 
+namespace OldMaid;
+
 class Card {
     public static int $JOKER = 0;
     public static int $SPADE = 1;
