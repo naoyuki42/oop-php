@@ -8,7 +8,7 @@ class Player {
     private Hand $myHand;
     public string $name;
 
-    public function construct(string $name, Master $master, Table $table) {
+    public function __construct(string $name, Master $master, Table $table) {
         $this->name = $name;
         $this->master = $master;
         $this->table = $table;
@@ -17,9 +17,9 @@ class Player {
 
     public function play(Player $nextPlayer): void {
         $nextHand = $nextPlayer->showHand();
-        $pickedCard  $nextHand->pickedCard();
+        $pickedCard = $nextHand->pickedCard();
 
-        $string = "{$this->name}:{$nextPlayer->name}さんから{$pickedCard->toString()}を引きました。\n";
+        $string = "{$this->showName()}:{$nextPlayer->showName()}さんから{$pickedCard->showCard()}を引きました。\n";
         printf($string);
 
         $this->dealCard($pickedCard);
@@ -27,7 +27,7 @@ class Player {
         if ($this->myHand->getNumberOfCards() === 0) {
             $this->master->declareWin($this);
         } else {
-            $string = "{$this->name}:残りの手札は{$this->myHand->toString()}です";
+            $string = "{$this->showName()}:残りの手札は{$this->myHand->showHand()}です\n";
             printf($string);
         }
     }
@@ -37,8 +37,6 @@ class Player {
             $this->master->declareWin($this);
         }
 
-        $this->myHand->shuffle();
-
         return $this->myHand;
     }
 
@@ -46,17 +44,17 @@ class Player {
         $this->dealCard($card);
     }
 
-    public function dealCard(Card $card): void {
+    private function dealCard(Card $card): void {
         $this->myHand->addCard($card);
 
         $sameCards = $this->myHand->findSameNumberCard();
 
-        if ($sameCards != null) {
-            $table->disposeCard($sameCards);
+        if (!empty($sameCards)) {
+            $this->table->disposeCard($sameCards[0]);
         }
     }
 
-    public function toString(): string {
+    public function showName(): string {
         return $this->name;
     }
 }

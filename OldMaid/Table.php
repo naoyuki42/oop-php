@@ -5,12 +5,9 @@ namespace OldMaid;
 class Table {
     private array $disposedCards = [];
 
-    public function disposedCard(array $cards): void {
-        $string = "";
-        foreach ($cards as $card) {
-            $string . $card->toString() . " ";
-        }
+    public function disposeCard(Card $card): void {
+        $string = $card->showCard();
         printf("{$string}を捨てました\n");
-        array_concat($this->disposedCards, $cards);
+        array_push($this->disposedCards, $card);
     }
 }

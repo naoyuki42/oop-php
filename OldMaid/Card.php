@@ -3,62 +3,35 @@
 namespace OldMaid;
 
 class Card {
-    public static int $JOKER = 0;
-    public static int $SPADE = 1;
-    public static int $DIAMOND = 2;
-    public static int $CLUB = 3;
-    public static int $HEART = 4;
-
-    private int $suit;
+    private string $suit;
     private int $number;
 
-    public function __construct(int $suit, int $number) {
+    public function __construct(string $suit, int $number) {
         $this->suit = $suit;
         $this->number = $number;
     }
 
     public function getNumber(): int {
-        return $number;
+        return $this->number;
     }
 
-    public function toString(): string {
-        $string = "";
-
-        if ($this->number === 0) {
-            return $string .= "JK";
-        }
-
-        switch ($this->suit) {
-            case $this->SPADE:
-                $string .= "S";
-                break;
-            case $this->DIAMOND:
-                $string .= "D";
-                break;
-            case $this->CLUB:
-                $string .= "C";
-                break;
-            case $this->HEART:
-                $string .= "H";
-                break;
-            default:
-                break;
-        }
+    public function showCard(): string {
+        $string = $this->suit;
         switch ($this->number) {
-            case 1:
-                $string . "A";
+            case 1;
+                $string .= "A";
                 break;
-            case 11:
-                $string . "J";
+            case 11;
+                $string .= "J";
                 break;
-            case 12:
-                $string . "Q";
+            case 12;
+                $string .= "Q";
                 break;
-            case 13:
-                $string . "K";
+            case 13;
+                $string .= "K";
                 break;
             default:
-                $string . strval($this->number);
+                $string .= strval($this->number);
                 break;
         }
         return $string;

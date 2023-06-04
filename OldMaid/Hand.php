@@ -9,7 +9,7 @@ class Hand {
         array_push($this->hand, $card);
     }
 
-    public function pickCard(): Card {
+    public function pickedCard(): Card | null {
         return array_shift($this->hand);
     }
 
@@ -23,7 +23,7 @@ class Hand {
 
     public function findSameNumberCard(): array {
         $numberOfCards = count($this->hand);
-        $sameCards = null;
+        $sameCards = [];
 
         if ($numberOfCards === 0) {
             return $sameCards;
@@ -37,16 +37,17 @@ class Hand {
             $card = $this->hand[$i];
             if ($card->getNumber() === $lastAddedCardNumber) {
                 $sameCards[0] = array_pop($this->hand);
-                $sameCards[1] = array_splice($this->hand, $i, 1);
+                $sameCards[1] = array_splice($this->hand, $i, 1)[0];
+                break;
             }
         }
         return $sameCards;
     }
 
-    public function toString(): string {
+    public function showHand(): string {
         $string = "";
         foreach ($this->hand as $card) {
-            $string . $card->toString() . " ";
+            $string .= $card->showCard() . " ";
         }
         return $string;
     }
