@@ -20,7 +20,7 @@ $trump = createTrump();
 $master->registerPlayers([$murata, $yamada, $saito]);
 $master->prepareGame($trump);
 
-
+// NOTE:無限ループするので要修正
 $master->startGame();
 
 function createTrump(): Hand {
