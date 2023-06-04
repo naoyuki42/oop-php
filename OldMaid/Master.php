@@ -9,10 +9,11 @@ class Master {
         printf("【カードを配ります】\n");
 
         $cards->shuffle();
+        $numberOfCards = $cards->getNumberOfCard();
         $numberOfPlayers = count($this->players);
 
-        for ($i = 0; $i < $cards->getNumberOfCards(); $i++) {
-            $card = $cards->pickedCard();
+        for ($i = 0; $i < $numberOfCards; $i++) {
+            $card = $cards->pickCard();
             $player = $this->players[$i % $numberOfPlayers];
             $player->receiveCard($card);
         }
@@ -21,32 +22,33 @@ class Master {
     public function startGame(): void {
         printf("【ババ抜きを開始します】\n");
 
-        for ($i = 0; count($this->players) > 1; $i++) {
-            $playerIndex = $i % count($this->players);
-            $nextPlayerIndex = ($i + 1) % count($this->players);
+        $count = 0;
+        while (count($this->players) > 1) {
+            $playerIndex = $count % count($this->players);
+            $nextPlayerIndex = ($count + 1) % count($this->players);
 
             $player = $this->players[$playerIndex];
             $nextPlayer = $this->players[$nextPlayerIndex];
 
-            printf("{$player->showName()}さんの番です\n");
+            printf("{$player->toString()}の番です\n");
             $player->play($nextPlayer);
+            $count += 1;
         }
 
-        printf("【ババ抜きを終了します】\n");
+        if (count($this->players) == 1) {
+            $loser = $this->players[0];
+            printf("【ババ抜きを終了しました】\n");
+            printf("{$loser->toString()}の負けです\n");
+        }
     }
 
     public function declareWin(Player $winner): void {
-        printf("{$winner->showName()}が上がりました\n");
-
-        $winnerIndex = array_search($winner, $this->players);
-        array_splice($this->players, $winnerIndex, 1);
-
-        if (count($this->players) === 1) {
-            printf("{$this->players[0]->showName()}さんの負けです\n");
-        }
+        printf("{$winner->toString()}が上がりました\n");
+        $index = array_search($winner, $this->players);
+        array_splice($this->players, $index, 1);
     }
 
-    public function registerPlayers(array $players): void {
-        $this->players = $players;
+    public function registerPlayer(Player $player): void {
+        array_push($this->players, $player);
     }
 }

@@ -2,12 +2,20 @@
 
 namespace OldMaid;
 
-class Table {
+class Table
+{
     private array $disposedCards = [];
 
-    public function disposeCard(Card $card): void {
-        $string = $card->showCard();
-        printf("{$string}を捨てました\n");
+    public function putCard($card): void {
         array_push($this->disposedCards, $card);
+        printf("{$card->toString()}を捨てました\n");
+    }
+
+    public function toString(): string {
+        $disposedCardsString = "";
+        foreach ($this->disposedCards as $card) {
+            $disposedCardsString .= $card->toString() . " ";
+        }
+        return $disposedCardsString;
     }
 }

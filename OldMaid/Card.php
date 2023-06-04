@@ -3,10 +3,16 @@
 namespace OldMaid;
 
 class Card {
-    private string $suit;
+    const JOKER = 0;
+    const SPADE = 1;
+    const DIAMOND = 2;
+    const CLUB = 3;
+    const HEART = 4;
+
+    private int $suit;
     private int $number;
 
-    public function __construct(string $suit, int $number) {
+    public function __construct(int $suit, int $number) {
         $this->suit = $suit;
         $this->number = $number;
     }
@@ -15,25 +21,33 @@ class Card {
         return $this->number;
     }
 
-    public function showCard(): string {
-        $string = $this->suit;
-        switch ($this->number) {
-            case 1;
-                $string .= "A";
-                break;
-            case 11;
-                $string .= "J";
-                break;
-            case 12;
-                $string .= "Q";
-                break;
-            case 13;
-                $string .= "K";
-                break;
-            default:
-                $string .= strval($this->number);
-                break;
+    public function toString(): string {
+        if ($this->suit === 0) {
+            return "JK";
+        } else {
+            $suit_array = [
+                self::SPADE => "S",
+                self::DIAMOND => "D",
+                self::CLUB => "C",
+                self::HEART => "H",
+            ];
+            $number_array = [
+                1 => "A",
+                2 => "2",
+                3 => "3",
+                4 => "4",
+                5 => "5",
+                6 => "6",
+                7 => "7",
+                8 => "8",
+                9 => "9",
+                10 => "T",
+                11 => "J",
+                12 => "Q",
+                13 => "K",
+            ];
+            $card = $suit_array[$this->suit] . $number_array[$this->number];
+            return $card;
         }
-        return $string;
     }
 }

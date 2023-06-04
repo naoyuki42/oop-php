@@ -9,7 +9,7 @@ class Hand {
         array_push($this->hand, $card);
     }
 
-    public function pickedCard(): Card | null {
+    public function pickCard(): Card {
         return array_shift($this->hand);
     }
 
@@ -17,38 +17,34 @@ class Hand {
         shuffle($this->hand);
     }
 
-    public function getNumberOfCards(): int {
+    public function getNumberOfCard(): int {
         return count($this->hand);
     }
 
-    public function findSameNumberCard(): array {
-        $numberOfCards = count($this->hand);
-        $sameCards = [];
+    public function findSameNumberCard(): array | null {
+        $sameCards = null;
 
-        if ($numberOfCards === 0) {
-            return $sameCards;
-        }
+        $lastAddedCard = end($this->hand);
+        $lastAddedCardNum = $lastAddedCard->getNumber();
 
-        $lastIndex = $numberOfCards - 1;
-        $lastAddedCard = $this->hand[$lastIndex];
-        $lastAddedCardNumber = $lastAddedCard->getNumber();
-
-        for ($i = 0; $i < $lastIndex; $i++) {
+        for ($i = 0; $i < count($this->hand) - 1; $i++) {
             $card = $this->hand[$i];
-            if ($card->getNumber() === $lastAddedCardNumber) {
-                $sameCards[0] = array_pop($this->hand);
-                $sameCards[1] = array_splice($this->hand, $i, 1)[0];
+            if ($card->getNumber() == $lastAddedCardNum) {
+                $sameCards = [$this->hand[count($this->hand) - 1], $this->hand[$i]];
+                array_splice($this->hand, $i, 1);
+                array_pop($this->hand);
                 break;
             }
         }
+
         return $sameCards;
     }
 
-    public function showHand(): string {
-        $string = "";
+    public function toString(): string {
+        $handCards = "";
         foreach ($this->hand as $card) {
-            $string .= $card->showCard() . " ";
+            $handCards .= $card->toString() . " ";
         }
-        return $string;
+        return $handCards;
     }
 }
