@@ -26,7 +26,7 @@ class Card {
         return $this->suit;
     }
 
-    public function getCard(): string {
+    public function toString(): string {
         $suit_array = [
             self::SPADE => "S",
             self::DIAMOND => "D",
