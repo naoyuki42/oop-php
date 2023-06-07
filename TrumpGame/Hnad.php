@@ -40,6 +40,7 @@ class Hand {
             foreach($this->hand as $card) {
                 $string .= $card->toString() . " ";
             }
+            $string .= "\n";
         }
         return $string;
     }
