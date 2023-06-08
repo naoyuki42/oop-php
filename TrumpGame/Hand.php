@@ -3,7 +3,7 @@
 namespace TrumpGame;
 
 class Hand {
-    private array $hand = [];
+    public array $hand = [];
 
     public function addCard(Card $card): void {
         array_push($this->hand, $card);

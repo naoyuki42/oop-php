@@ -29,8 +29,8 @@ class FantanRule implements Rule {
         return $candidate;
     }
 
-    public function isThereCard(Table $table, int $suit, int $number): boolean {
+    public function isThereCard(Table $table, int $suit, int $number): bool {
         $cards = $table->getCards();
-        return $cards[$suit][$number] !== "..";
+        return ($cards[$suit][$number] !== "..");
     }
 }

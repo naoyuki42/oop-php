@@ -3,17 +3,18 @@
 namespace TrumpGame;
 
 class Master {
-    private array $players;
+    private array $players = [];
 
     public function prepareGame(Hand $cards): void {
         printf("【カードを配ります】\n");
 
         $cards->shuffle();
         $numberOfCards = $cards->getNumberOfCards();
+        $numberOfPlayers = count($this->players);
 
-        for ($i = 0; $i < count($this->players); $i++) {
+        for ($i = 0; $i < $numberOfCards; $i++) {
             $player = $this->players[$i % $numberOfPlayers];
-            $player->receiveCard($cards[$i]);
+            $player->receiveCard($cards->hand[$i]);
         }
     }
 
@@ -37,7 +38,7 @@ class Master {
     }
 
     public function declareWin(Player $winner): void {
-        printf("{$player->toString()}さんが上がりました\n");
+        printf("{$winner->toString()}さんが上がりました\n");
 
         $this->deregisterPlayer($winner);
     }

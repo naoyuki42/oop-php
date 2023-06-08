@@ -3,5 +3,5 @@
 namespace TrumpGame;
 
 interface Rule {
-    public function findCandidate(Hand $hand, Table $table): array | null;
+    public function findCandidate(Hand $hand, Table $table): Card | null;
 }

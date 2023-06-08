@@ -3,11 +3,11 @@
 namespace Fantan;
 
 use TrumpGame\Table;
-use TrumpGame\Cards;
+use TrumpGame\Card;
 
 class FantanTable implements Table {
     private array $table = [
-        "SPADE" => [
+        1 => [
             1 => "..",
             2 => "..",
             3 => "..",
@@ -22,7 +22,7 @@ class FantanTable implements Table {
             12 => "..",
             13 => "..",
         ],
-        "DIAMOND" => [
+        2 => [
             1 => "..",
             2 => "..",
             3 => "..",
@@ -37,7 +37,7 @@ class FantanTable implements Table {
             12 => "..",
             13 => "..",
         ],
-        "CLUB" => [
+        3 => [
             1 => "..",
             2 => "..",
             3 => "..",
@@ -52,7 +52,7 @@ class FantanTable implements Table {
             12 => "..",
             13 => "..",
         ],
-        "HEART" => [
+        4 => [
             1 => "..",
             2 => "..",
             3 => "..",
@@ -72,7 +72,7 @@ class FantanTable implements Table {
     public function putCard(Card $card): void {
         $number = $card->getNumber();
         $suit = $card->getSuit();
-        $this->table[$suit][$number] = $this->card->toString();
+        $this->table[$suit][$number] = $card->toString();
     }
 
     public function getCards(): array {
@@ -84,7 +84,8 @@ class FantanTable implements Table {
         $string = "";
         foreach ($this->table as $suit_cards) {
             foreach ($suit_cards as $card) {
-                $string .= $card->toString() . " ";
+                $string .= ($card === "..") ? "..": $card;
+                $string .= " ";
             }
             $string .= "\n";
         }

@@ -6,9 +6,10 @@ use TrumpGame\Player;
 use TrumpGame\Master;
 use TrumpGame\Table;
 use TrumpGame\Rule;
+use TrumpGame\Card;
 
 class FantanPlayer extends Player {
-    private int $pass;
+    private int $pass = 0;
 
     public function __construct(string $name, Master $master, Table $table, Rule $rule) {
         parent::__construct($name, $master, $table, $rule);
@@ -17,30 +18,30 @@ class FantanPlayer extends Player {
     public function receiveCard(Card $card): void {
         if ($card->getNumber() === 7) {
             printf("{$this->name}:{$card->toString()}を置きました\n");
-            $table->putCard($card);
+            $this->table->putCard($card);
         } else {
-            $this->mayHand->addCard($card);
+            $this->myHand->addCard($card);
         }
     }
 
     public function play(Player $nextPlayer): void {
-        printf($this->myHand()->toString());
+        printf($this->myHand->toString());
 
-        $candidate = $rule->findCandidate($this->myHand, $this->table);
+        $candidate = $this->rule->findCandidate($this->myHand, $this->table);
         if ($candidate != null) {
             printf("{$candidate->toString()}を置きました\n");
             $this->table->putCard($candidate);
 
             printf("{$this->table->toString()}\n");
 
-            if ($this->myHand->getNumberCards() === 0) {
+            if ($this->myHand->getNumberOfCards() === 0) {
                 $this->master->declareWin($this);
             }
         } else {
             $this->pass += 1;
             $this->master->pass($this);
             if ($this->pass > FantanMaster::PASS_LIMIT) {
-                foreach ($this->myHand as $card) {
+                foreach ($this->myHand->hand as $card) {
                     $this->table->putCard($card);
                 }
             }
