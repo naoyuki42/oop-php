@@ -2,19 +2,19 @@
 
 namespace Game;
 
-require_once "Game.php";
-require_once "Player.php";
+require_once "GameFactory.php";
 
-use Game\Game;
-use Game\Player;
+use Game\GameFactory;
 
 main();
 
 function main()
 {
+    $player1_name = "田中";
+    $player2_name = "鈴木";
     $hands = ["グー", "チョキ", "パー"];
-    $player1 = new Player("田中", $hands);
-    $player2 = new Player("鈴木", $hands);
-    $game = new Game($player1, $player2);
+
+    $gameFactory = new GameFactory();
+    $game = $gameFactory->createGame($player1_name, $player2_name, $hands);
     $game->startGame();
 }

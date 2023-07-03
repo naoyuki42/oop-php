@@ -8,6 +8,7 @@ require_once "Interface/PlayerInterface.php";
 use Game\Interface\GameInterface;
 use Game\Interface\PlayerInterface;
 
+// TODO:抽象化出来る
 class Game implements GameInterface
 {
     public function __construct(
