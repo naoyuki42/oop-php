@@ -5,6 +5,9 @@ namespace Game;
 require_once "Game.php";
 require_once "Player.php";
 
+use Game\Game;
+use Game\Player;
+
 main();
 
 function main()
