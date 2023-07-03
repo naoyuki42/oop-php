@@ -2,15 +2,8 @@
 
 namespace Game;
 
-require_once "Player.php";
 require_once "Game.php";
-require_once "Interface/PlayerInterface.php";
-require_once "Interface/GameInterface.php";
-
-use Game\Player;
-use Game\Game;
-use Game\Interface\PlayerInterface;
-use Game\Interface\GameInterface;
+require_once "Player.php";
 
 main();
 

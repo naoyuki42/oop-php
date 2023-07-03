@@ -2,8 +2,11 @@
 
 namespace Game;
 
-use Game\GameInterface;
-use Game\PlayerInterface;
+require_once "Interface/GameInterface.php";
+require_once "Interface/PlayerInterface.php";
+
+use Game\Interface\GameInterface;
+use Game\Interface\PlayerInterface;
 
 class Game implements GameInterface
 {
@@ -17,9 +20,9 @@ class Game implements GameInterface
         echo "【ゲーム開始】\n";
 
         $player1Hand = $this->player1->getHand();
-        echo "【プレイヤー1】" . $player1Hand . "\n";
+        echo "【プレイヤー1】" . $this->player1->getName() . ":" . $player1Hand . "\n";
         $player2Hand = $this->player2->getHand();
-        echo "【プレイヤー2】" . $player2Hand . "\n";
+        echo "【プレイヤー2】" . $this->player2->getName() . ":" . $player2Hand . "\n";
 
         $winner = $this->judgeHands($player1Hand, $player2Hand);
         if ($winner !== null) {
@@ -32,7 +35,7 @@ class Game implements GameInterface
         echo "【ゲーム終了】\n";
     }
 
-    private function judgeHands(string $player1Hand, string $player2Hand): ?PlayerInterface
+    public function judgeHands(string $player1Hand, string $player2Hand): ?PlayerInterface
     {
         $winner = null;
         if (($player1Hand === "グー" && $player2Hand === "チョキ")
@@ -49,7 +52,7 @@ class Game implements GameInterface
         return $winner;
     }
 
-    private function showWinner(PlayerInterface $winner): string
+    public function showWinner(PlayerInterface $winner): string
     {
         return $winner->getName();
     }

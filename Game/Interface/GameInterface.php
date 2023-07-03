@@ -2,11 +2,9 @@
 
 namespace Game\Interface;
 
-use Game\Interface\PlayerInterface;
-
 interface GameInterface
 {
     public function startGame(): void;
-    private function judgeHands(): ?PlayerInterface;
-    private function showWinner(PlayerInterface $winner): string;
+    public function judgeHands(string $player1Hand, string $player2Hand): ?PlayerInterface;
+    public function showWinner(PlayerInterface $winner): string;
 }
