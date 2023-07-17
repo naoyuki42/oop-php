@@ -13,11 +13,12 @@ class PayrollDatabase
 
     function __construct()
     {
+        $empId = 1;
         $class = new Classification();
         $schedule = new Schedule();
         $method = new Method();
 
-        self::$employees[1] = new Employee("Bob", $class, $schedule, $method);
+        self::$employees[$empId] = new Employee("Bob", $class, $schedule, $method);
     }
 
     public static function addEmployee(int $empId, Employee $e): void
