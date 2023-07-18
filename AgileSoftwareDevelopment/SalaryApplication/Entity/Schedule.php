@@ -2,4 +2,6 @@
 
 namespace SalaryApplication\Entity;
 
-class Schedule {}
+use SalaryApplication\Interface\ISchedule;
+
+class Schedule implements ISchedule {}

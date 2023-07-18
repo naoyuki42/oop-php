@@ -2,4 +2,6 @@
 
 namespace SalaryApplication\Entity;
 
-class Method {}
+use SalaryApplication\Interface\IMethod;
+
+class Method implements IMethod {}
