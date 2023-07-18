@@ -2,11 +2,6 @@
 
 namespace SalaryApplication;
 
-use SalaryApplication\Entity\Employee;
-use SalaryApplication\Entity\HoldMethod;
-use SalaryApplication\Entity\MonthlySchedule;
-use SalaryApplication\Entity\SalariedClassification;
-
 use SalaryApplication\Interface\IEmployee;
 
 class PayrollDatabase
