@@ -10,10 +10,12 @@ use SalaryApplication\Interface\ISchedule;
 class Employee implements IEmployee
 {
     function __construct(
+        private int $empId,
         private string $name,
-        private IClassification $class,
-        private ISchedule $schedule,
-        private IMethod $method,
+        private string $address,
+        private ?IClassification $class = null,
+        private ?ISchedule $schedule = null,
+        private ?IMethod $method = null,
     ) {}
 
     public function getName(): string
@@ -34,5 +36,20 @@ class Employee implements IEmployee
     public function getMethod(): IMethod
     {
         return $this->method;
+    }
+
+    public function setClassification(IClassification $class): void
+    {
+        $this->class = $class;
+    }
+
+    public function setSchedule(ISchedule $schedule): void
+    {
+        $this->schedule = $schedule;
+    }
+
+    public function setMethod(IMethod $method): void
+    {
+        $this->method = $method;
     }
 }

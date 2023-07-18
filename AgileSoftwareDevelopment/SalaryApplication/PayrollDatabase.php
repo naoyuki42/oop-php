@@ -3,9 +3,9 @@
 namespace SalaryApplication;
 
 use SalaryApplication\Entity\Employee;
-use SalaryApplication\Entity\Classification;
-use SalaryApplication\Entity\Method;
-use SalaryApplication\Entity\Schedule;
+use SalaryApplication\Entity\HoldMethod;
+use SalaryApplication\Entity\MonthlySchedule;
+use SalaryApplication\Entity\SalariedClassification;
 
 use SalaryApplication\Interface\IEmployee;
 
@@ -16,11 +16,16 @@ class PayrollDatabase
     function __construct()
     {
         $empId = 1;
-        $class = new Classification();
-        $schedule = new Schedule();
-        $method = new Method();
+        $class = new SalariedClassification(1000);
+        $schedule = new MonthlySchedule();
+        $method = new HoldMethod();
 
-        self::$employees[$empId] = new Employee("Bob", $class, $schedule, $method);
+        $e1 = new Employee($empId, "Bob", "America");
+        $e1->setClassification($class);
+        $e1->setSchedule($schedule);
+        $e1->setMethod($method);
+
+        self::$employees[$empId] = $e1;
     }
 
     public static function addEmployee(int $empId, IEmployee $e): void

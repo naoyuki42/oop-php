@@ -19,7 +19,7 @@ class AddSalariedEmployeeTest extends TestCase {
         $empId = 1;
 
         $t = new AddSalariedEmployee($empId, "Bob", "Home", 1000);
-        $t->execute();
+        $t->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);
 

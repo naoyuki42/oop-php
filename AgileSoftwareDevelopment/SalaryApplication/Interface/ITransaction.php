@@ -2,7 +2,9 @@
 
 namespace SalaryApplication\Interface;
 
+use SalaryApplication\PayrollDatabase;
+
 interface ITransaction
 {
-    public function execute(): void;
+    public function execute(PayrollDatabase $payrollDatabase): void;
 }
