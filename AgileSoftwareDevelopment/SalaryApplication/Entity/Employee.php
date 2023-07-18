@@ -2,7 +2,10 @@
 
 namespace SalaryApplication\Entity;
 
-class Employee {
+use SalaryApplication\Interface\IEmployee;
+
+class Employee implements IEmployee
+{
     function __construct(
         private string $name,
         private Classification $class,

@@ -1,11 +1,13 @@
 <?php
 
-namespace SalaryApplication\Test;
+namespace SalaryApplication;
 
-use SalaryApplication\Entity\Classification;
 use SalaryApplication\Entity\Employee;
+use SalaryApplication\Entity\Classification;
 use SalaryApplication\Entity\Method;
 use SalaryApplication\Entity\Schedule;
+
+use SalaryApplication\Interface\IEmployee;
 
 class PayrollDatabase
 {
@@ -21,12 +23,12 @@ class PayrollDatabase
         self::$employees[$empId] = new Employee("Bob", $class, $schedule, $method);
     }
 
-    public static function addEmployee(int $empId, Employee $e): void
+    public static function addEmployee(int $empId, IEmployee $e): void
     {
         self::$employees[$empId] = $e;
     }
 
-    public static function getEmployee(int $empId): Employee
+    public static function getEmployee(int $empId): IEmployee
     {
         return self::$employees[$empId];
     }

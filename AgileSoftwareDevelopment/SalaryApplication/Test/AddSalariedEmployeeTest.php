@@ -5,7 +5,7 @@ namespace SalaryApplication\Test;
 use PHPUnit\Framework\TestCase;
 
 use SalaryApplication\Transaction\AddSalariedEmployee;
-use SalaryApplication\Test\PayrollDatabase;
+use SalaryApplication\PayrollDatabase;
 
 class AddSalariedEmployeeTest extends TestCase {
     private PayrollDatabase $payrollDatabase;

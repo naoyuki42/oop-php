@@ -2,7 +2,9 @@
 
 namespace SalaryApplication\Transaction;
 
-class AddSalariedEmployee
+use SalaryApplication\Interface\ITransaction;
+
+class AddSalariedEmployee implements ITransaction
 {
     public function execute(): void
     {}
