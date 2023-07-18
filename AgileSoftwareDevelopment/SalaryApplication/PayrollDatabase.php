@@ -13,21 +13,6 @@ class PayrollDatabase
 {
     private static array $employees = [];
 
-    function __construct()
-    {
-        $empId = 1;
-        $class = new SalariedClassification(1000);
-        $schedule = new MonthlySchedule();
-        $method = new HoldMethod();
-
-        $e1 = new Employee($empId, "Bob", "America");
-        $e1->setClassification($class);
-        $e1->setSchedule($schedule);
-        $e1->setMethod($method);
-
-        self::$employees[$empId] = $e1;
-    }
-
     public static function addEmployee(int $empId, IEmployee $e): void
     {
         self::$employees[$empId] = $e;
