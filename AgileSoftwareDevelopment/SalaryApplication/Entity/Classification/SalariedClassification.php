@@ -2,9 +2,9 @@
 
 namespace SalaryApplication\Entity;
 
-use SalaryApplication\Interface\IClassification;
+use SalaryApplication\Interface\ISalariedClassification;
 
-class SalariedClassification implements IClassification
+class SalariedClassification extends PaymentClassification implements ISalariedClassification
 {
     function __construct(
         private int $salary,

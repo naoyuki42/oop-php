@@ -4,10 +4,10 @@ namespace SalaryApplication\Test;
 
 use PHPUnit\Framework\TestCase;
 
-use SalaryApplication\Transaction\AddSalariedEmployee;
 use SalaryApplication\PayrollDatabase;
+use SalaryApplication\Transaction\AddHourlyEmployee;
 
-class AddSalariedEmployeeTest extends TestCase {
+class AddHourlyEmployeeTest extends TestCase {
     private PayrollDatabase $payrollDatabase;
 
     public function setUp(): void
@@ -18,7 +18,7 @@ class AddSalariedEmployeeTest extends TestCase {
     public function test_add_salaried_employee(): void {
         $empId = 1;
 
-        $t = new AddSalariedEmployee($empId, "Bob", "Home", 1000);
+        $t = new AddHourlyEmployee($empId, "Bob", "Home", 15);
         $t->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);
@@ -26,10 +26,10 @@ class AddSalariedEmployeeTest extends TestCase {
         $this->assertNotNull($e);
         $this->assertSame("Bob", $e->getName());
 
-        // TODO:getSalaryメソッドが存在しないエラーがある
+        // TODO:getHourlyRateメソッドが存在しないエラーがある
         $class = $e->getClassification();
         $this->assertNotNull($class);
-        $this->assertSame(1000, $class->getSalary());
+        $this->assertSame(15, $class->getHourlyRate());
 
         $schedule = $e->getSchedule();
         $this->assertNotNull($schedule);

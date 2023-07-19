@@ -2,4 +2,4 @@
 
 namespace SalaryApplication\Interface;
 
-interface ISchedule {}
+interface IWeeklySchedule {}

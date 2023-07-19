@@ -5,8 +5,8 @@ namespace SalaryApplication\Transaction;
 use SalaryApplication\PayrollDatabase;
 use SalaryApplication\Entity\Employee;
 use SalaryApplication\Entity\HoldMethod;
-use SalaryApplication\Interface\IClassification;
-use SalaryApplication\Interface\ISchedule;
+use SalaryApplication\Entity\PaymentClassification;
+use SalaryApplication\Entity\PaymentSchedule;
 use SalaryApplication\Interface\ITransaction;
 
 abstract class AddEmployeeTransaction implements ITransaction
@@ -31,7 +31,7 @@ abstract class AddEmployeeTransaction implements ITransaction
         $payrollDatabase->addEmployee($this->empId, $e);
     }
 
-    abstract protected function getClassification(): IClassification;
+    abstract protected function getClassification(): PaymentClassification;
 
-    abstract protected function getSchedule(): ISchedule;
+    abstract protected function getSchedule(): PaymentSchedule;
 }

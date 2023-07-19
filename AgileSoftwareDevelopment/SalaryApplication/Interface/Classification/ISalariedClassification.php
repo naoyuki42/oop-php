@@ -2,6 +2,7 @@
 
 namespace SalaryApplication\Interface;
 
-interface IClassification {
+interface ISalariedClassification
+{
     public function getSalary(): int;
 }

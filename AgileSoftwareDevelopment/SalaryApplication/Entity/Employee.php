@@ -2,10 +2,10 @@
 
 namespace SalaryApplication\Entity;
 
-use SalaryApplication\Interface\IClassification;
+use SalaryApplication\Entity\PaymentClassification;
+use SalaryApplication\Entity\PaymentSchedule;
 use SalaryApplication\Interface\IEmployee;
 use SalaryApplication\Interface\IMethod;
-use SalaryApplication\Interface\ISchedule;
 
 class Employee implements IEmployee
 {
@@ -13,8 +13,8 @@ class Employee implements IEmployee
         private int $empId,
         private string $name,
         private string $address,
-        private ?IClassification $class = null,
-        private ?ISchedule $schedule = null,
+        private ?PaymentClassification $class = null,
+        private ?PaymentSchedule $schedule = null,
         private ?IMethod $method = null,
     ) {}
 
@@ -23,12 +23,12 @@ class Employee implements IEmployee
         return $this->name;
     }
 
-    public function getClassification(): IClassification
+    public function getClassification(): PaymentClassification
     {
         return $this->class;
     }
 
-    public function getSchedule(): ISchedule
+    public function getSchedule(): PaymentSchedule
     {
         return $this->schedule;
     }
@@ -38,12 +38,12 @@ class Employee implements IEmployee
         return $this->method;
     }
 
-    public function setClassification(IClassification $class): void
+    public function setClassification(PaymentClassification $class): void
     {
         $this->class = $class;
     }
 
-    public function setSchedule(ISchedule $schedule): void
+    public function setSchedule(PaymentSchedule $schedule): void
     {
         $this->schedule = $schedule;
     }

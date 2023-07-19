@@ -4,8 +4,6 @@ namespace SalaryApplication\Transaction;
 
 use SalaryApplication\Entity\SalariedClassification;
 use SalaryApplication\Entity\MonthlySchedule;
-use SalaryApplication\Interface\IClassification;
-use SalaryApplication\Interface\ISchedule;
 
 class AddSalariedEmployee extends AddEmployeeTransaction
 {
@@ -17,12 +15,12 @@ class AddSalariedEmployee extends AddEmployeeTransaction
         $this->salary = $salary;
     }
 
-    public function getClassification(): IClassification
+    public function getClassification(): SalariedClassification
     {
         return new SalariedClassification($this->salary);
     }
 
-    public function getSchedule(): ISchedule
+    public function getSchedule(): MonthlySchedule
     {
         return new MonthlySchedule();
     }
