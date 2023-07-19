@@ -16,7 +16,7 @@ class TimeCardTransactionTest extends TestCase
         $this->payrollDatabase = new PayrollDatabase();
     }
 
-    public function test_time_card(): void
+    public function test_time_card_transaction(): void
     {
         $empId = 2;
 
