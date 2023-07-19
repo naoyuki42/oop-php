@@ -4,8 +4,8 @@ namespace SalaryApplication\Entity;
 
 use SalaryApplication\Entity\PaymentClassification;
 use SalaryApplication\Entity\PaymentSchedule;
+use SalaryApplication\Entity\PaymentMethod;
 use SalaryApplication\Interface\IEmployee;
-use SalaryApplication\Interface\IMethod;
 
 class Employee implements IEmployee
 {
@@ -15,7 +15,7 @@ class Employee implements IEmployee
         private string $address,
         private ?PaymentClassification $class = null,
         private ?PaymentSchedule $schedule = null,
-        private ?IMethod $method = null,
+        private ?PaymentMethod $method = null,
     ) {}
 
     public function getName(): string
@@ -33,7 +33,7 @@ class Employee implements IEmployee
         return $this->schedule;
     }
 
-    public function getMethod(): IMethod
+    public function getMethod(): PaymentMethod
     {
         return $this->method;
     }
@@ -48,7 +48,7 @@ class Employee implements IEmployee
         $this->schedule = $schedule;
     }
 
-    public function setMethod(IMethod $method): void
+    public function setMethod(PaymentMethod $method): void
     {
         $this->method = $method;
     }

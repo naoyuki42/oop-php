@@ -2,4 +2,4 @@
 
 namespace SalaryApplication\Interface;
 
-interface IMethod {}
+interface IHoldMethod {}
