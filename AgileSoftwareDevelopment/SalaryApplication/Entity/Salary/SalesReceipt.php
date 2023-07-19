@@ -4,16 +4,13 @@ namespace SalaryApplication\Entity;
 
 use SalaryApplication\Interface\ISalesReceipt;
 
-class SalesReceipt implements ISalesReceipt
+class SalesReceipt extends DailySalary implements ISalesReceipt
 {
-    function __construct(
-        private string $date,
-        private int $amount,
-    ) {}
+    private int $amount;
 
-    public function getDate(): string
-    {
-        return $this->date;
+    function __construct(string $date, int $amount) {
+        parent::__construct($date);
+        $this->amount = $amount;
     }
 
     public function getAmount(): int

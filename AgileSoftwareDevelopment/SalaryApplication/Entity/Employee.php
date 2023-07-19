@@ -6,6 +6,7 @@ use SalaryApplication\Entity\PaymentClassification;
 use SalaryApplication\Entity\PaymentSchedule;
 use SalaryApplication\Entity\PaymentMethod;
 use SalaryApplication\Interface\IEmployee;
+use SalaryApplication\Interface\IAffiliation;
 
 class Employee implements IEmployee
 {
@@ -16,6 +17,7 @@ class Employee implements IEmployee
         private ?PaymentClassification $class = null,
         private ?PaymentSchedule $schedule = null,
         private ?PaymentMethod $method = null,
+        private ?IAffiliation $charge = null,
     ) {}
 
     public function getName(): string
@@ -38,6 +40,11 @@ class Employee implements IEmployee
         return $this->method;
     }
 
+    public function getAffiliation(): IAffiliation
+    {
+        return $this->charge;
+    }
+
     public function setClassification(PaymentClassification $class): void
     {
         $this->class = $class;
@@ -51,5 +58,10 @@ class Employee implements IEmployee
     public function setMethod(PaymentMethod $method): void
     {
         $this->method = $method;
+    }
+
+    public function setAffiliation(IAffiliation $affiliation): void
+    {
+        $this->charge = $affiliation;
     }
 }

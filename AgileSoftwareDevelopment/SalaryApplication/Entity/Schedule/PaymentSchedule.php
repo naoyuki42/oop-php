@@ -2,4 +2,4 @@
 
 namespace SalaryApplication\Entity;
 
-class PaymentSchedule {}
+abstract class PaymentSchedule {}

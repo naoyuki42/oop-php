@@ -2,8 +2,7 @@
 
 namespace SalaryApplication\Interface;
 
-interface ISalesReceipt
+interface ISalesReceipt extends ISalary
 {
-    public function getDate(): string;
     public function getAmount(): int;
 }

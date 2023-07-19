@@ -2,4 +2,4 @@
 
 namespace SalaryApplication\Entity;
 
-class PaymentMethod {}
+abstract class PaymentMethod {}

@@ -2,8 +2,7 @@
 
 namespace SalaryApplication\Interface;
 
-interface ITimeCard
+interface ITimeCard extends ISalary
 {
-    public function getDate(): string;
     public function getHours(): string;
 }
