@@ -13,9 +13,14 @@ class PayrollDatabase
         self::$employees[$empId] = $e;
     }
 
-    public static function getEmployee(int $empId): IEmployee
+    public static function getEmployee(int $empId): ?IEmployee
     {
-        return self::$employees[$empId];
+        return isset(self::$employees[$empId]) ? self::$employees[$empId] : null;
+    }
+
+    public static function deleteEmployee(int $empId): void
+    {
+        unset(self::$employees[$empId]);
     }
 
     public static function clear(): void

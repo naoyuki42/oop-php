@@ -5,7 +5,7 @@ namespace SalaryApplication\Transaction;
 use SalaryApplication\Entity\HourlyClassification;
 use SalaryApplication\Entity\WeeklySchedule;
 
-class AddHourlyEmployee extends AddEmployeeTransaction
+class AddHourlyEmployee extends AddEmployee
 {
     private int $hourlyRate;
 

@@ -7,7 +7,8 @@ use PHPUnit\Framework\TestCase;
 use SalaryApplication\PayrollDatabase;
 use SalaryApplication\Transaction\AddCommissionedEmployee;
 
-class AddCommissionedEmployeeTest extends TestCase {
+class AddCommissionedEmployeeTest extends TestCase
+{
     private PayrollDatabase $payrollDatabase;
 
     public function setUp(): void
@@ -15,7 +16,8 @@ class AddCommissionedEmployeeTest extends TestCase {
         $this->payrollDatabase = new PayrollDatabase();
     }
 
-    public function test_add_salaried_employee(): void {
+    public function test_add_commissioned_employee(): void
+    {
         $empId = 1;
 
         $t = new AddCommissionedEmployee($empId, "Bob", "Home", 1000, 1.2);
