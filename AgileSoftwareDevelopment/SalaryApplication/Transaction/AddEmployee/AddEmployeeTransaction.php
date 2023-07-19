@@ -9,7 +9,7 @@ use SalaryApplication\Entity\PaymentClassification;
 use SalaryApplication\Entity\PaymentSchedule;
 use SalaryApplication\Interface\ITransaction;
 
-abstract class AddEmployee implements ITransaction
+abstract class AddEmployeeTransaction implements ITransaction
 {
     function __construct(
         private int $empId,

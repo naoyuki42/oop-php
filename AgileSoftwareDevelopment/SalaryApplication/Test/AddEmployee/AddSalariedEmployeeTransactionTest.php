@@ -4,10 +4,10 @@ namespace SalaryApplication\Test;
 
 use PHPUnit\Framework\TestCase;
 
-use SalaryApplication\Transaction\AddSalariedEmployee;
+use SalaryApplication\Transaction\AddSalariedEmployeeTransaction;
 use SalaryApplication\PayrollDatabase;
 
-class AddSalariedEmployeeTest extends TestCase
+class AddSalariedEmployeeTransactionTest extends TestCase
 {
     private PayrollDatabase $payrollDatabase;
 
@@ -20,7 +20,7 @@ class AddSalariedEmployeeTest extends TestCase
     {
         $empId = 1;
 
-        $t = new AddSalariedEmployee($empId, "Bob", "Home", 1000);
+        $t = new AddSalariedEmployeeTransaction($empId, "Bob", "Home", 1000);
         $t->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);

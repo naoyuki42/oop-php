@@ -5,7 +5,7 @@ namespace SalaryApplication\Transaction;
 use SalaryApplication\Entity\SalariedClassification;
 use SalaryApplication\Entity\MonthlySchedule;
 
-class AddSalariedEmployee extends AddEmployee
+class AddSalariedEmployeeTransaction extends AddEmployeeTransaction
 {
     private int $salary;
 

@@ -5,7 +5,7 @@ namespace SalaryApplication\Transaction;
 use SalaryApplication\PayrollDatabase;
 use SalaryApplication\Interface\ITransaction;
 
-class DeleteEmployee implements ITransaction
+class DeleteEmployeeTransaction implements ITransaction
 {
     function __construct(
         private int $empId,

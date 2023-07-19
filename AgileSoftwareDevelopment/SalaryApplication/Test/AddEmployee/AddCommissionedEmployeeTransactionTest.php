@@ -5,9 +5,9 @@ namespace SalaryApplication\Test;
 use PHPUnit\Framework\TestCase;
 
 use SalaryApplication\PayrollDatabase;
-use SalaryApplication\Transaction\AddCommissionedEmployee;
+use SalaryApplication\Transaction\AddCommissionedEmployeeTransaction;
 
-class AddCommissionedEmployeeTest extends TestCase
+class AddCommissionedEmployeeTransactionTest extends TestCase
 {
     private PayrollDatabase $payrollDatabase;
 
@@ -20,7 +20,7 @@ class AddCommissionedEmployeeTest extends TestCase
     {
         $empId = 1;
 
-        $t = new AddCommissionedEmployee($empId, "Bob", "Home", 1000, 1.2);
+        $t = new AddCommissionedEmployeeTransaction($empId, "Bob", "Home", 1000, 1.2);
         $t->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);

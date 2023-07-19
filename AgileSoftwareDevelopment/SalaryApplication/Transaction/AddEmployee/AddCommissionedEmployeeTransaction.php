@@ -5,7 +5,7 @@ namespace SalaryApplication\Transaction;
 use SalaryApplication\Entity\CommissionedClassification;
 use SalaryApplication\Entity\BiweeklySchedule;
 
-class AddCommissionedEmployee extends AddEmployee
+class AddCommissionedEmployeeTransaction extends AddEmployeeTransaction
 {
     private int $salary;
     private float $commissionRate;

@@ -4,10 +4,10 @@ namespace SalaryApplication\Test;
 
 use PHPUnit\Framework\TestCase;
 use SalaryApplication\PayrollDatabase;
-use SalaryApplication\Transaction\AddCommissionedEmployee;
-use SalaryApplication\Transaction\DeleteEmployee;
+use SalaryApplication\Transaction\AddCommissionedEmployeeTransaction;
+use SalaryApplication\Transaction\DeleteEmployeeTransaction;
 
-class DeleteEmployeeTest extends TestCase
+class DeleteEmployeeTransactionTest extends TestCase
 {
     private PayrollDatabase $payrollDatabase;
 
@@ -16,18 +16,17 @@ class DeleteEmployeeTest extends TestCase
         $this->payrollDatabase = new PayrollDatabase();
     }
 
-
     public function test_delete_employee(): void
     {
         $empId = 3;
 
-        $t = new AddCommissionedEmployee($empId, "Lance", "Home", 2500, 3.2);
+        $t = new AddCommissionedEmployeeTransaction($empId, "Lance", "Home", 2500, 3.2);
         $t->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);
         $this->assertNotNull($e);
 
-        $dt = new DeleteEmployee($empId);
+        $dt = new DeleteEmployeeTransaction($empId);
         $dt->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);

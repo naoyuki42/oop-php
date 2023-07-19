@@ -5,9 +5,9 @@ namespace SalaryApplication\Test;
 use PHPUnit\Framework\TestCase;
 
 use SalaryApplication\PayrollDatabase;
-use SalaryApplication\Transaction\AddHourlyEmployee;
+use SalaryApplication\Transaction\AddHourlyEmployeeTransaction;
 
-class AddHourlyEmployeeTest extends TestCase
+class AddHourlyEmployeeTransactionTest extends TestCase
 {
     private PayrollDatabase $payrollDatabase;
 
@@ -20,7 +20,7 @@ class AddHourlyEmployeeTest extends TestCase
     {
         $empId = 1;
 
-        $t = new AddHourlyEmployee($empId, "Bob", "Home", 15);
+        $t = new AddHourlyEmployeeTransaction($empId, "Bob", "Home", 15);
         $t->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);
