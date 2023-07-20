@@ -45,6 +45,11 @@ class Employee implements IEmployee
         return $this->charge;
     }
 
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
     public function setClassification(PaymentClassification $class): void
     {
         $this->class = $class;
