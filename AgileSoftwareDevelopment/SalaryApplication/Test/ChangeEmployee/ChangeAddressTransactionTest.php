@@ -16,7 +16,7 @@ class ChangeAddressTransactionTest extends TestCase
         $this->payrollDatabase = new PayrollDatabase();
     }
 
-    public function test_change_name_transaction(): void
+    public function test_change_address_transaction(): void
     {
         $empId = 2;
         $t = new AddHourlyEmployeeTransaction($empId, "Bill", "Home", 15);

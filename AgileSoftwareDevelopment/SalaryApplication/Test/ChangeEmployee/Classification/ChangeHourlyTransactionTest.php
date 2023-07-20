@@ -18,7 +18,7 @@ class ChangeHourlyTransactionTest extends TestCase
         $this->payrollDatabase = new PayrollDatabase();
     }
 
-    public function test_change_name_transaction(): void
+    public function test_change_hourly_transaction(): void
     {
         $empId = 2;
         $t = new AddCommissionedEmployeeTransaction($empId, "Bill", "Home", 2500, 3.2);
