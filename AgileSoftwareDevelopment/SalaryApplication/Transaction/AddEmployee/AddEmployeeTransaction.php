@@ -21,7 +21,7 @@ abstract class AddEmployeeTransaction implements ITransaction
     {
         $class = $this->getClassification();
         $schedule = $this->getSchedule();
-        $method = new HoldMethod();
+        $method = new HoldMethod($this->address);
         $e = new Employee($this->empId, $this->name, $this->address);
 
         $e->setClassification($class);

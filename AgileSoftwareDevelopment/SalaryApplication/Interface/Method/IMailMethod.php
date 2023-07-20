@@ -2,4 +2,7 @@
 
 namespace SalaryApplication\Interface;
 
-interface IMailMethod {}
+interface IMailMethod
+{
+    public function getAddress(): string;
+}

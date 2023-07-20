@@ -2,4 +2,6 @@
 
 namespace SalaryApplication\Interface;
 
-interface IHoldMethod {}
+interface IHoldMethod {
+    public function getAddress(): string;
+}

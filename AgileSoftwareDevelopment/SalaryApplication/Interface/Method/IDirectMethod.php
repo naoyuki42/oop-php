@@ -2,4 +2,7 @@
 
 namespace SalaryApplication\Interface;
 
-interface IDirectMethod {}
+interface IDirectMethod {
+    public function getBank(): string;
+    public function getAccount(): int;
+}

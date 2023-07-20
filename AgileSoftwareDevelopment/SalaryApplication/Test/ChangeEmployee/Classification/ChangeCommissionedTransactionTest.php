@@ -24,8 +24,8 @@ class ChangeCommissionedTransactionTest extends TestCase
         $t = new AddHourlyEmployeeTransaction($empId, "Bill", "Home", 9);
         $t->execute($this->payrollDatabase);
 
-        $cht = new ChangeCommissionedTransaction($empId, 300, 1.5);
-        $cht->execute($this->payrollDatabase);
+        $cct = new ChangeCommissionedTransaction($empId, 300, 1.5);
+        $cct->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);
         $this->assertNotNull($e);
