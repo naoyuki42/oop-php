@@ -25,6 +25,11 @@ class Employee implements IEmployee
         return $this->name;
     }
 
+    public function getAddress(): string
+    {
+        return $this->address;
+    }
+
     public function getClassification(): PaymentClassification
     {
         return $this->class;
@@ -48,6 +53,11 @@ class Employee implements IEmployee
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function setAddress(string $address): void
+    {
+        $this->address = $address;
     }
 
     public function setClassification(PaymentClassification $class): void
