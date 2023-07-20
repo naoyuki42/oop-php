@@ -9,7 +9,7 @@ use SalaryApplication\Interface\IEmployee;
 abstract class ChangeClassificationTransaction extends ChangeEmployeeTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
     ) {
         parent::__construct($empId);
     }

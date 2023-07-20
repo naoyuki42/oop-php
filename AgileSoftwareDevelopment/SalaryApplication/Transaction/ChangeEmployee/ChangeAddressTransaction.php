@@ -7,7 +7,7 @@ use SalaryApplication\Interface\IEmployee;
 class ChangeAddressTransaction extends ChangeEmployeeTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
         private string $address,
     ) {
         parent::__construct($empId);

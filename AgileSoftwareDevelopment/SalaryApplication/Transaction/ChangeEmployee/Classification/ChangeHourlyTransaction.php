@@ -10,7 +10,7 @@ use SalaryApplication\Entity\WeeklySchedule;
 class ChangeHourlyTransaction extends ChangeClassificationTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
         private int $hourlyRate,
     ) {
         parent::__construct($empId);

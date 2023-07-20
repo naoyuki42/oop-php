@@ -10,7 +10,7 @@ use SalaryApplication\Entity\SalariedClassification;
 class ChangeSalariedTransaction extends ChangeClassificationTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
         private int $salary
     ) {
         parent::__construct($empId);

@@ -7,7 +7,7 @@ use SalaryApplication\Interface\IEmployee;
 class ChangeNameTransaction extends ChangeEmployeeTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
         private string $name,
     ) {
         parent::__construct($empId);

@@ -8,7 +8,7 @@ use SalaryApplication\Entity\PaymentMethod;
 class ChangeDirectTransaction extends ChangeMethodTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
         private string $bank,
         private int $account,
     ) {

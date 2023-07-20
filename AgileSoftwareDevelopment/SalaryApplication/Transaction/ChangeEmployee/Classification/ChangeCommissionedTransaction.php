@@ -10,7 +10,7 @@ use SalaryApplication\Entity\PaymentSchedule;
 class ChangeCommissionedTransaction extends ChangeClassificationTransaction
 {
     function __construct(
-        int $empId,
+        private int $empId,
         private int $salary,
         private float $commissionRate,
     ) {
