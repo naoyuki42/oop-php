@@ -21,6 +21,7 @@ class AddServiceChargeTransactionTest extends TestCase
     public function test_service_charge_transaction(): void
     {
         $empId = 5;
+        $memberId = 86;
 
         $t = new AddHourlyEmployeeTransaction($empId, "Bill", "Home", 12);
         $t->execute($this->payrollDatabase);
@@ -29,10 +30,8 @@ class AddServiceChargeTransactionTest extends TestCase
         $tct->execute($this->payrollDatabase);
 
         $e = $this->payrollDatabase->getEmployee($empId);
-        $affiliation = new UnionAffiliation(11);
+        $affiliation = new UnionAffiliation($memberId, 11);
         $e->setAffiliation($affiliation);
-
-        $memberId = 86;
         $this->payrollDatabase->addUnionMember($memberId, $e);
 
         $sct = new AddServiceChargeTransaction($memberId, "2023-07-19", 11);

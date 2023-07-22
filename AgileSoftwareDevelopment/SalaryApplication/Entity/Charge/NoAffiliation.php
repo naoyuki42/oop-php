@@ -4,12 +4,12 @@ namespace SalaryApplication\Entity;
 
 use SalaryApplication\Interface\IAffiliation;
 
-class UnionAffiliation implements IAffiliation
+class NoAffiliation implements IAffiliation
 {
     function __construct(
-        private int $memberId,
-        private int $dues,
-        private array $serviceCharge = [],
+        private ?int $memberId = null,
+        private ?int $dues = null,
+        private ?array $serviceCharge = null,
     ) {}
 
     public function getServiceCharge(string $date): ?int

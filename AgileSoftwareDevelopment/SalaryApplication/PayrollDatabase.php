@@ -36,6 +36,11 @@ class PayrollDatabase
         return isset(self::$unionMembers[$memberId]) ? self::$unionMembers[$memberId] : null;
     }
 
+    public static function removeUnionMember(int $memberId): void
+    {
+        unset(self::$unionMembers[$memberId]);
+    }
+
     public static function clear(): void
     {
         self::$employees = [];

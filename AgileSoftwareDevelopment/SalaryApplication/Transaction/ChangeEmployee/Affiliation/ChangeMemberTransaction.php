@@ -25,6 +25,6 @@ class ChangeMemberTransaction extends ChangeAffiliationTransaction
 
     protected function getAffiliation(): IAffiliation
     {
-        return new UnionAffiliation($this->dues);
+        return new UnionAffiliation($this->memberId, $this->dues);
     }
 }
