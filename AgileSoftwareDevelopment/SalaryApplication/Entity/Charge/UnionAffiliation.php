@@ -2,33 +2,13 @@
 
 namespace SalaryApplication\Entity;
 
-use SalaryApplication\Interface\IAffiliation;
-
-class UnionAffiliation implements IAffiliation
+class UnionAffiliation extends PaymentAffiliation
 {
     function __construct(
         private int $memberId,
         private int $dues,
         private array $serviceCharge = [],
-    ) {}
-
-    public function getServiceCharge(string $date): ?int
-    {
-        return isset($this->serviceCharge[$date]) ? $this->serviceCharge[$date] : null;
-    }
-
-    public function getDues(): int
-    {
-        return $this->dues;
-    }
-
-    public function getMemberId(): int
-    {
-        return $this->memberId;
-    }
-
-    public function addServiceCharge(string $date, int $charge): void
-    {
-        $this->serviceCharge[$date] = $charge;
+    ) {
+        parent::__construct($memberId, $dues, $serviceCharge);
     }
 }

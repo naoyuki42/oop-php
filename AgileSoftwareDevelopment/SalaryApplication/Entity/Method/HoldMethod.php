@@ -3,6 +3,7 @@
 namespace SalaryApplication\Entity;
 
 use SalaryApplication\Interface\IHoldMethod;
+use SalaryApplication\Interface\IPayCheck;
 
 class HoldMethod extends PaymentMethod implements IHoldMethod
 {
@@ -14,4 +15,7 @@ class HoldMethod extends PaymentMethod implements IHoldMethod
     {
         return $this->address;
     }
+
+    public function pay(IPayCheck $pc): void
+    {}
 }

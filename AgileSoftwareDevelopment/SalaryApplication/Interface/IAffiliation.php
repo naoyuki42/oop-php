@@ -8,4 +8,5 @@ interface IAffiliation
     public function getDues(): int;
     public function getMemberId(): int;
     public function addServiceCharge(string $date, int $charge): void;
+    public function calculateDeductions(IPayCheck $payCheck): float;
 }

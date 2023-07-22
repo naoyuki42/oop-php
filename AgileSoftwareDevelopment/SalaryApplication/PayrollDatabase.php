@@ -25,6 +25,11 @@ class PayrollDatabase
         unset(self::$employees[$empId]);
     }
 
+    public static function getAllEmployees(): array
+    {
+        return self::$employees;
+    }
+
 
     public static function addUnionMember(int $memberId, IEmployee $e): void
     {

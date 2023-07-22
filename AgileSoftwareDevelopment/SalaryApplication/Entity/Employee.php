@@ -7,6 +7,7 @@ use SalaryApplication\Entity\PaymentSchedule;
 use SalaryApplication\Entity\PaymentMethod;
 use SalaryApplication\Interface\IEmployee;
 use SalaryApplication\Interface\IAffiliation;
+use SalaryApplication\Interface\IPayCheck;
 
 class Employee implements IEmployee
 {
@@ -17,7 +18,7 @@ class Employee implements IEmployee
         private ?PaymentClassification $class = null,
         private ?PaymentSchedule $schedule = null,
         private ?PaymentMethod $method = null,
-        private ?IAffiliation $charge = null,
+        private IAffiliation $charge = new NoAffiliation(),
     ) {}
 
     public function getName(): string
@@ -83,5 +84,18 @@ class Employee implements IEmployee
     public function isPayDate($date): bool
     {
         return $this->schedule->isPayDate($date);
+    }
+
+    public function payDay(IPayCheck $pc): void
+    {
+        $grossPay = $this->class->calculatePay($pc);
+        $deductions = $this->charge->calculateDeductions($pc);
+        $netPay = $grossPay - $deductions;
+
+        $pc->setGrossPay($grossPay);
+        $pc->setDeductions($deductions);
+        $pc->setNetPay($netPay);
+
+        $this->method->pay($pc);
     }
 }

@@ -2,4 +2,9 @@
 
 namespace SalaryApplication\Entity;
 
-abstract class PaymentMethod {}
+use SalaryApplication\Interface\IPayCheck;
+
+abstract class PaymentMethod
+{
+    abstract public function pay(IPayCheck $pc): void;
+}

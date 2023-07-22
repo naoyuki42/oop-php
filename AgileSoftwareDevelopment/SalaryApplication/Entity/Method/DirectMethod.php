@@ -3,6 +3,7 @@
 namespace SalaryApplication\Entity;
 
 use SalaryApplication\Interface\IDirectMethod;
+use SalaryApplication\Interface\IPayCheck;
 
 class DirectMethod extends PaymentMethod implements IDirectMethod
 {
@@ -20,4 +21,7 @@ class DirectMethod extends PaymentMethod implements IDirectMethod
     {
         return $this->account;
     }
+
+    public function pay(IPayCheck $pc): void
+    {}
 }

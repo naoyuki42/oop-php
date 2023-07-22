@@ -2,6 +2,7 @@
 
 namespace SalaryApplication\Interface;
 
+use DateTime;
 use SalaryApplication\Entity\PaymentClassification;
 use SalaryApplication\Entity\PaymentSchedule;
 use SalaryApplication\Entity\PaymentMethod;
@@ -21,5 +22,6 @@ interface IEmployee
     public function setSchedule(PaymentSchedule $schedule): void;
     public function setMethod(PaymentMethod $method): void;
     public function setAffiliation(IAffiliation $affiliation): void;
-    public function isPayDate($date): bool;
+    public function isPayDate(DateTime $date): bool;
+    public function payDay(IPayCheck $pc): void;
 }

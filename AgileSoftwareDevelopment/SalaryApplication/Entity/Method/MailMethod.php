@@ -3,6 +3,7 @@
 namespace SalaryApplication\Entity;
 
 use SalaryApplication\Interface\IMailMethod;
+use SalaryApplication\Interface\IPayCheck;
 
 class MailMethod extends PaymentMethod implements IMailMethod
 {
@@ -14,4 +15,7 @@ class MailMethod extends PaymentMethod implements IMailMethod
     {
         return $this->address;
     }
+
+    public function pay(IPayCheck $pc): void
+    {}
 }
