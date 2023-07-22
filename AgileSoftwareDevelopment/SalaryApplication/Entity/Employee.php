@@ -79,4 +79,9 @@ class Employee implements IEmployee
     {
         $this->charge = $affiliation;
     }
+
+    public function isPayDate($date): bool
+    {
+        return $this->schedule->isPayDate($date);
+    }
 }

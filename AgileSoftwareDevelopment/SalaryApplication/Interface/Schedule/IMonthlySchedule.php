@@ -2,4 +2,8 @@
 
 namespace SalaryApplication\Interface;
 
-interface IMonthlySchedule {}
+use DateTime;
+
+interface IMonthlySchedule {
+    public function isPayDate(DateTime $date): bool;
+}

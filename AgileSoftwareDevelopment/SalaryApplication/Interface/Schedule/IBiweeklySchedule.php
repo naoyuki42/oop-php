@@ -2,4 +2,8 @@
 
 namespace SalaryApplication\Interface;
 
-interface IBiweeklySchedule {}
+use DateTime;
+
+interface IBiweeklySchedule {
+    public function isPayDate(DateTime $date): bool;
+}

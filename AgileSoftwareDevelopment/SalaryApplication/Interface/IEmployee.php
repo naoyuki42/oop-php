@@ -21,4 +21,5 @@ interface IEmployee
     public function setSchedule(PaymentSchedule $schedule): void;
     public function setMethod(PaymentMethod $method): void;
     public function setAffiliation(IAffiliation $affiliation): void;
+    public function isPayDate($date): bool;
 }

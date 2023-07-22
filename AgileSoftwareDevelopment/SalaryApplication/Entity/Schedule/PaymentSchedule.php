@@ -2,4 +2,9 @@
 
 namespace SalaryApplication\Entity;
 
-abstract class PaymentSchedule {}
+use DateTime;
+
+abstract class PaymentSchedule
+{
+    abstract public function isPayDate(DateTime $date): bool;
+}
